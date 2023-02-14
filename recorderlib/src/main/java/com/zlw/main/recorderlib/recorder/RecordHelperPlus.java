@@ -33,9 +33,9 @@ import fftlib.FftFactory;
 /**
  * @author zhaolewei on 2018/7/10.
  */
-public class RecordHelper {
-    private static final String TAG = RecordHelper.class.getSimpleName();
-    private volatile static RecordHelper instance;
+public class RecordHelperPlus {
+    private static final String TAG = RecordHelperPlus.class.getSimpleName();
+    private volatile static RecordHelperPlus instance;
     private volatile RecordState state = RecordState.IDLE;
     private static final int RECORD_AUDIO_BUFFER_TIMES = 1;
 
@@ -53,37 +53,24 @@ public class RecordHelper {
     private List<File> files = new ArrayList<>();
     private Mp3EncodeThread mp3EncodeThread;
 
-    private RecordHelper() {
-    }
 
-    static RecordHelper getInstance() {
-        if (instance == null) {
-            synchronized (RecordHelper.class) {
-                if (instance == null) {
-                    instance = new RecordHelper();
-                }
-            }
-        }
-        return instance;
-    }
-
-    RecordState getState() {
+    public RecordState getState() {
         return state;
     }
 
-    void setRecordStateListener(RecordStateListener recordStateListener) {
+    public void setRecordStateListener(RecordStateListener recordStateListener) {
         this.recordStateListener = recordStateListener;
     }
 
-    void setRecordDataListener(RecordDataListener recordDataListener) {
+    public void setRecordDataListener(RecordDataListener recordDataListener) {
         this.recordDataListener = recordDataListener;
     }
 
-    void setRecordSoundSizeListener(RecordSoundSizeListener recordSoundSizeListener) {
+    public void setRecordSoundSizeListener(RecordSoundSizeListener recordSoundSizeListener) {
         this.recordSoundSizeListener = recordSoundSizeListener;
     }
 
-    void setRecordResultListener(RecordResultListener recordResultListener) {
+    public void setRecordResultListener(RecordResultListener recordResultListener) {
         this.recordResultListener = recordResultListener;
     }
 
@@ -128,7 +115,7 @@ public class RecordHelper {
         }
     }
 
-    void pause() {
+    public void pause() {
         if (state != RecordState.RECORDING) {
             Logger.e(TAG, "状态异常当前状态： %s", state.name());
             return;
@@ -137,7 +124,7 @@ public class RecordHelper {
         notifyState();
     }
 
-    void resume() {
+    public void resume() {
         if (state != RecordState.PAUSE) {
             Logger.e(TAG, "状态异常当前状态： %s", state.name());
             return;

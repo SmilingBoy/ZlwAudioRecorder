@@ -19,8 +19,9 @@ import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 import com.zlw.loggerlib.Logger;
 import com.zlw.main.recorderlib.RecordManager;
+import com.zlw.main.recorderlib.RecordManagerPlus;
 import com.zlw.main.recorderlib.recorder.RecordConfig;
-import com.zlw.main.recorderlib.recorder.RecordHelper;
+import com.zlw.main.recorderlib.recorder.RecordState;
 import com.zlw.main.recorderlib.recorder.listener.RecordFftDataListener;
 import com.zlw.main.recorderlib.recorder.listener.RecordResultListener;
 import com.zlw.main.recorderlib.recorder.listener.RecordSoundSizeListener;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private boolean isStart = false;
     private boolean isPause = false;
-    final RecordManager recordManager = RecordManager.getInstance();
+    final RecordManagerPlus recordManager = new RecordManagerPlus();
     private static final String[] STYLE_DATA = new String[]{"STYLE_ALL", "STYLE_NOTHING", "STYLE_WAVE", "STYLE_HOLLOW_LUMP"};
 
     @Override
@@ -157,7 +158,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void initRecord() {
-        recordManager.init(MyApp.getInstance(), BuildConfig.DEBUG);
         recordManager.changeFormat(RecordConfig.RecordFormat.WAV);
         String recordDir = String.format(Locale.getDefault(), "%s/Record/com.zlw.main/",
                 Environment.getExternalStorageDirectory().getAbsolutePath());
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private void initRecordEvent() {
         recordManager.setRecordStateListener(new RecordStateListener() {
             @Override
-            public void onStateChange(RecordHelper.RecordState state) {
+            public void onStateChange(RecordState state) {
                 Logger.i(TAG, "onStateChange %s", state.name());
 
                 switch (state) {

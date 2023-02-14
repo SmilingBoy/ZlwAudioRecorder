@@ -62,7 +62,7 @@ https://www.jianshu.com/p/c0222de2faed
     ```java     
    RecordManager.getInstance().setRecordStateListener(new RecordStateListener() {
        @Override
-       public void onStateChange(RecordHelper.RecordState state) {
+       public void onStateChange(RecordState state) {
            }
        }
 

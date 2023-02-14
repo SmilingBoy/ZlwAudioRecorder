@@ -21,6 +21,7 @@ import com.zlw.loggerlib.Logger;
 import com.zlw.main.recorderlib.RecordManager;
 import com.zlw.main.recorderlib.recorder.RecordConfig;
 import com.zlw.main.recorderlib.recorder.RecordHelper;
+import com.zlw.main.recorderlib.recorder.RecordState;
 import com.zlw.main.recorderlib.recorder.listener.RecordFftDataListener;
 import com.zlw.main.recorderlib.recorder.listener.RecordResultListener;
 import com.zlw.main.recorderlib.recorder.listener.RecordStateListener;
@@ -108,7 +109,7 @@ public class TestHzActivity extends AppCompatActivity implements AdapterView.OnI
 
         recordManager.setRecordStateListener(new RecordStateListener() {
             @Override
-            public void onStateChange(RecordHelper.RecordState state) {
+            public void onStateChange(RecordState state) {
                 Logger.i(TAG, "onStateChange %s", state.name());
 
                 switch (state) {

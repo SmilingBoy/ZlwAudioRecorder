@@ -112,7 +112,7 @@ public class RecordService extends Service {
      * 改变录音格式
      */
     public static boolean changeFormat(RecordConfig.RecordFormat recordFormat) {
-        if (getState() == RecordHelper.RecordState.IDLE) {
+        if (getState() == RecordState.IDLE) {
             currentConfig.setFormat(recordFormat);
             return true;
         }
@@ -123,7 +123,7 @@ public class RecordService extends Service {
      * 改变录音配置
      */
     public static boolean changeRecordConfig(RecordConfig recordConfig) {
-        if (getState() == RecordHelper.RecordState.IDLE) {
+        if (getState() == RecordState.IDLE) {
             currentConfig = recordConfig;
             return true;
         }
@@ -144,7 +144,7 @@ public class RecordService extends Service {
     /**
      * 获取当前的录音状态
      */
-    public static RecordHelper.RecordState getState() {
+    public static RecordState getState() {
         return RecordHelper.getInstance().getState();
     }
 

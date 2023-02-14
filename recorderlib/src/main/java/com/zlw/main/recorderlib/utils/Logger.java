@@ -35,7 +35,7 @@ public class Logger {
 //    private static boolean LOGE = false;
 
     public static void v(String tag, String format, Object... args) {
-        if (LOGV) {
+        if (IsDebug && LOGV) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -45,7 +45,7 @@ public class Logger {
     }
 
     public static void v(Throwable throwable, String tag, String format, Object... args) {
-        if (LOGV) {
+        if (IsDebug && LOGV) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -55,7 +55,7 @@ public class Logger {
     }
 
     public static void d(String tag, String format, Object... args) {
-        if (LOGD) {
+        if (IsDebug && LOGD) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -65,7 +65,7 @@ public class Logger {
     }
 
     public static void d(Throwable throwable, String tag, String format, Object... args) {
-        if (LOGD) {
+        if (IsDebug && LOGD) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -75,7 +75,7 @@ public class Logger {
     }
 
     public static void i(String tag, String format, Object... args) {
-        if (LOGI) {
+        if (IsDebug && LOGI) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -85,7 +85,7 @@ public class Logger {
     }
 
     public static void i(Throwable throwable, String tag, String format, Object... args) {
-        if (LOGI) {
+        if (IsDebug && LOGI) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -95,7 +95,7 @@ public class Logger {
     }
 
     public static void w(String tag, String format, Object... args) {
-        if (LOGW) {
+        if (IsDebug && LOGW) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -105,7 +105,7 @@ public class Logger {
     }
 
     public static void w(Throwable throwable, String tag, String format, Object... args) {
-        if (LOGW) {
+        if (IsDebug && LOGW) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -115,7 +115,7 @@ public class Logger {
     }
 
     public static void e(String tag, String format, Object... args) {
-        if (LOGE) {
+        if (IsDebug && LOGE) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 
@@ -125,7 +125,7 @@ public class Logger {
     }
 
     public static void e(Throwable throwable, String tag, String format, Object... args) {
-        if (LOGE) {
+        if (IsDebug && LOGE) {
             String message = buildMessage(format, args);
             tag = formatLength(PRE + tag, 28);
 

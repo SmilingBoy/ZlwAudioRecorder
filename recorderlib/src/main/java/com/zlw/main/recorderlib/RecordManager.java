@@ -5,8 +5,8 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 
 import com.zlw.main.recorderlib.recorder.RecordConfig;
-import com.zlw.main.recorderlib.recorder.RecordHelper;
 import com.zlw.main.recorderlib.recorder.RecordService;
+import com.zlw.main.recorderlib.recorder.RecordState;
 import com.zlw.main.recorderlib.recorder.listener.RecordDataListener;
 import com.zlw.main.recorderlib.recorder.listener.RecordFftDataListener;
 import com.zlw.main.recorderlib.recorder.listener.RecordResultListener;
@@ -139,7 +139,7 @@ public class RecordManager {
      *
      * @return 状态
      */
-    public RecordHelper.RecordState getState() {
+    public RecordState getState() {
         return RecordService.getState();
     }
 

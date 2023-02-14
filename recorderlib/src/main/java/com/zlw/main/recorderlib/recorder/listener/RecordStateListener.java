@@ -1,6 +1,6 @@
 package com.zlw.main.recorderlib.recorder.listener;
 
-import com.zlw.main.recorderlib.recorder.RecordHelper;
+import com.zlw.main.recorderlib.recorder.RecordState;
 
 /**
  * @author zhaolewei on 2018/7/11.
@@ -12,7 +12,7 @@ public interface RecordStateListener {
      *
      * @param state 当前状态
      */
-    void onStateChange(RecordHelper.RecordState state);
+    void onStateChange(RecordState state);
 
     /**
      * 录音错误
